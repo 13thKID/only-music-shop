@@ -1,4 +1,6 @@
-﻿namespace OnlyMusicShop.Application.Repositories;
+﻿using OnlyMusicShop.Domain.Entities;
+
+namespace OnlyMusicShop.Application.Repositories;
 
 public interface IGuitarRepository
 {

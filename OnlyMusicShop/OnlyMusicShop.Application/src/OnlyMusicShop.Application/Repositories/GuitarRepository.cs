@@ -1,4 +1,7 @@
-﻿namespace OnlyMusicShop.Application.Repositories
+﻿using OnlyMusicShop.Domain.Entities;
+
+namespace OnlyMusicShop.Application.Repositories
+
 {
     public class GuitarRepository:IGuitarRepository
     {
@@ -12,9 +15,3 @@
     }
 }
 
-public class Guitar
-{
-    public int Id { get; set; }
-    public string Name { get; set; }
-    public decimal Price { get; set; }
-}
