@@ -12,6 +12,11 @@ namespace OnlyMusicShop.Application.Repositories
                 new() { Id = 1, Name = "Fender Stratocaster", Price = 299.99M }
             };
         }
+
+        public Guitar GetGuitar(int id)
+        {
+            return new Guitar() { Id = id, Name = "Gibson 355 Cherry", Price = 2999M };
+        }
     }
 }
 
