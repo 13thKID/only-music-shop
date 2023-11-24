@@ -1,5 +1,13 @@
 OnlyMusicShop/.vs/
+
 OnlyMusicShop/OnlyMusicShop.Application/src/OnlyMusicShop.Application/obj/
 OnlyMusicShop/OnlyMusicShop.Application/test/OnlyMusicShop.Application.Tests/obj/
+OnlyMusicShop/obj/
+OnlyMusicShop/OnlyMusicShop.Domain/obj/obj/
+
 OnlyMusicShop/OnlyMusicShop.Application/src/OnlyMusicShop.Application/bin/
 OnlyMusicShop/OnlyMusicShop.Application/test/OnlyMusicShop.Application.Tests/bin/
+OnlyMusicShop/bin/
+OnlyMusicShop/OnlyMusicShop.Domain/bin/bin/
+
+
