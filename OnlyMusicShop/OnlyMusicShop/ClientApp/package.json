@@ -3,6 +3,7 @@
 	"version": "0.1.0",
 	"private": true,
 	"dependencies": {
+		"axios": "^1.6.1",
 		"bootstrap": "^5.2.3",
 		"http-proxy-middleware": "^2.0.6",
 		"jquery": "^3.6.4",
@@ -31,6 +32,7 @@
 		"workbox-streams": "^6.5.4"
 	},
 	"devDependencies": {
+		"@types/axios": "^0.14.0",
 		"@types/jest": "^29.5.8",
 		"@types/node": "^20.9.0",
 		"@types/react": "^18.2.37",

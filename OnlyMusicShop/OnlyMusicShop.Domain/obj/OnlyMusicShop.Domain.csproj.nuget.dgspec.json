@@ -10,11 +10,11 @@
         "projectUniqueName": "C:\\Users\\btkaczyk\\Documents\\mentoring\\OnlyMusic\\OnlyMusicShop\\OnlyMusicShop.Domain\\OnlyMusicShop.Domain.csproj",
         "projectName": "OnlyMusicShop.Domain",
         "projectPath": "C:\\Users\\btkaczyk\\Documents\\mentoring\\OnlyMusic\\OnlyMusicShop\\OnlyMusicShop.Domain\\OnlyMusicShop.Domain.csproj",
-        "packagesPath": "C:\\Users\\btkaczykadm\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\btkaczyk\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\btkaczyk\\Documents\\mentoring\\OnlyMusic\\OnlyMusicShop\\OnlyMusicShop.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\btkaczykadm\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\btkaczyk\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

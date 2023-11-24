@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using OnlyMusicShop.Application.Repositories;
+using OnlyMusicShop.Domain.Entities;
+
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -15,19 +17,19 @@ namespace OnlyMusicShop.Controllers
         {
             _guitarRepository = guitarRepository;
         }
-        // GET: api/<GuitarsController>
-        [HttpGet]
+		// GET: api/<GuitarsController>
+		[HttpGet]
         public IEnumerable<Guitar> Get()
         {
             return _guitarRepository.GetGuitars();
         }
 
-        //// GET api/<GuitarsController>/5
-        //[HttpGet("{id}")]
-        //public string Get(int id)
-        //{
-        //    return "value";
-        //}
+        // GET api/<GuitarsController>/5
+        [HttpGet("{id}")]
+        public Guitar Get(int id)
+        {
+			return _guitarRepository.GetGuitar(id);
+		}
 
         //// POST api/<GuitarsController>
         //[HttpPost]

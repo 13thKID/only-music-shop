@@ -1,4 +1,7 @@
-﻿namespace OnlyMusicShop.Application.Repositories
+﻿using OnlyMusicShop.Domain.Entities;
+
+namespace OnlyMusicShop.Application.Repositories
+
 {
     public class GuitarRepository:IGuitarRepository
     {
@@ -9,12 +12,11 @@
                 new() { Id = 1, Name = "Fender Stratocaster", Price = 299.99M }
             };
         }
+
+        public Guitar GetGuitar(int id)
+        {
+            return new Guitar() { Id = id, Name = "Gibson 355 Cherry", Price = 2999M };
+        }
     }
 }
 
-public class Guitar
-{
-    public int Id { get; set; }
-    public string Name { get; set; }
-    public decimal Price { get; set; }
-}

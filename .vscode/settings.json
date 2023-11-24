@@ -1,5 +1,7 @@
 {
     "cSpell.words": [
         "linebreak"
-    ]
+    ],
+    "terminal.integrated.cwd": "OnlyMusicShop/OnlyMusicShop/ClientApp",
+    "files.eol": "\n",
 }
