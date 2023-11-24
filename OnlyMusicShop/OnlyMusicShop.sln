@@ -9,9 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlyMusicShop.Application",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlyMusicShop.Application.Tests", "OnlyMusicShop.Application\test\OnlyMusicShop.Application.Tests\OnlyMusicShop.Application.Tests.csproj", "{392BA1F9-3C0C-4586-8FC8-5E4F07D024F1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlyMusicShop.Domain", "OnlyMusicShop.Domain\OnlyMusicShop.Domain.csproj", "{CDAA16E8-F793-4612-9C49-4E4E6156F497}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlyMusicShop.Infrastructure", "OnlyMusicShop.Infrastructure\OnlyMusicShop.Infrastructure.csproj", "{2472841A-ABEA-4A12-A6C3-2B73D0D77360}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlyMusicShop.Domain", "OnlyMusicShop.Domain\OnlyMusicShop.Domain.csproj", "{CDAA16E8-F793-4612-9C49-4E4E6156F497}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +33,6 @@ Global
 		{CDAA16E8-F793-4612-9C49-4E4E6156F497}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CDAA16E8-F793-4612-9C49-4E4E6156F497}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CDAA16E8-F793-4612-9C49-4E4E6156F497}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2472841A-ABEA-4A12-A6C3-2B73D0D77360}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2472841A-ABEA-4A12-A6C3-2B73D0D77360}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2472841A-ABEA-4A12-A6C3-2B73D0D77360}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2472841A-ABEA-4A12-A6C3-2B73D0D77360}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

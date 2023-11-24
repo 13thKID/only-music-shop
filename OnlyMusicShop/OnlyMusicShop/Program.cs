@@ -1,11 +1,12 @@
-using OnlyMusicShop.Application.Repositories;
+using OnlyMusicShop.Application;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllersWithViews();
-builder.Services.AddScoped<IGuitarRepository, GuitarRepository>();
+builder.Services.AddApplication();
+
 
 var app = builder.Build();
 
