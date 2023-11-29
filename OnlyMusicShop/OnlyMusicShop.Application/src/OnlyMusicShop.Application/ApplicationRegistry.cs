@@ -1,11 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using OnlyMusicShop.Application.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OnlyMusicShop.Application
 {
@@ -15,8 +10,8 @@ namespace OnlyMusicShop.Application
 		{
 			services.AddScoped<IGuitarRepository, GuitarRepository>();
 			services.AddDbContext<OnlyMusicDbContext>(options => options.UseSqlServer(
-				"Server=localhost\\SQLEXPRESS;Database=only_music_shop;Trusted_Connection=True;TrustServerCertificate=true"
-			));
+                "Server=(localdb)\\mssqllocaldb;Database=OnlyMusicShopDB;Trusted_Connection=True;TrustServerCertificate=true"
+            ));
 		}
 	}
 }

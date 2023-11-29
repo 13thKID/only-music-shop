@@ -48,7 +48,7 @@ namespace OnlyMusicShop.Application.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Guitars");
+                    b.ToTable("Guitars", (string)null);
                 });
 #pragma warning restore 612, 618
         }
