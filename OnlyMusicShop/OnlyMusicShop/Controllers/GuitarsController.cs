@@ -3,11 +3,10 @@ using OnlyMusicShop.Application.Repositories;
 using OnlyMusicShop.Domain.Entities;
 
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace OnlyMusicShop.Controllers
 {
-    [Route("api/[controller]")]
+
+	[Route("api/[controller]")]
     [ApiController]
     public class GuitarsController : ControllerBase
     {
@@ -17,8 +16,8 @@ namespace OnlyMusicShop.Controllers
         {
             _guitarRepository = guitarRepository;
         }
-		// GET: api/<GuitarsController>
-		[HttpGet]
+        // GET: api/<GuitarsController>
+        [HttpGet]
         public IEnumerable<Guitar> Get()
         {
             return _guitarRepository.GetGuitars();
@@ -28,25 +27,28 @@ namespace OnlyMusicShop.Controllers
         [HttpGet("{id}")]
         public Guitar Get(int id)
         {
-			return _guitarRepository.GetGuitar(id);
-		}
+            return _guitarRepository.GetGuitar(id);
+        }
 
-        //// POST api/<GuitarsController>
-        //[HttpPost]
-        //public void Post([FromBody] string value)
-        //{
-        //}
+        // POST api/<GuitarsController>
+        [HttpPost]
+        public Guitar Post([FromBody] GuitarAttributes payload)
+        {
+            return _guitarRepository.CreateGuitar(payload);
+        }
 
-        //// PUT api/<GuitarsController>/5
-        //[HttpPut("{id}")]
-        //public void Put(int id, [FromBody] string value)
-        //{
-        //}
+        // PUT api/<GuitarsController>/5
+        [HttpPut("{id}")]
+        public Guitar Put(int id, [FromBody] GuitarAttributes attr)
+        {
+            return _guitarRepository.UpdateGuitar(id, attr);
+        }
 
-        //// DELETE api/<GuitarsController>/5
-        //[HttpDelete("{id}")]
-        //public void Delete(int id)
-        //{
-        //}
+        // DELETE api/<GuitarsController>/5
+        [HttpDelete("{id}")]
+        public int Delete(int id)
+        {
+            return _guitarRepository.RemoveGuitar(id);
+        }
     }
 }

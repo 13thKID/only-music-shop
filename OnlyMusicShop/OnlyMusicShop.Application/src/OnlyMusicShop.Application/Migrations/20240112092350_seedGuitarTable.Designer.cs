@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OnlyMusicShop.Application.Repositories;
 
@@ -11,9 +12,11 @@ using OnlyMusicShop.Application.Repositories;
 namespace OnlyMusicShop.Application.Migrations
 {
     [DbContext(typeof(OnlyMusicDbContext))]
-    partial class OnlyMusicDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240112092350_seedGuitarTable")]
+    partial class seedGuitarTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

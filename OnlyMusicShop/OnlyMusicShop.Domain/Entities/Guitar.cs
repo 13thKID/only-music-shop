@@ -11,6 +11,10 @@ namespace OnlyMusicShop.Domain.Entities
 
 		public int Id { get; set; }
 		public required string Name { get; set; }
+		public required string Manufacturer { get; set; }
+		public required string Model { get; set; }
+		public required string Type { get; set; }
+		public required string Color { get; set; }
 		public string? Description { get; set; }
 		public required decimal Price { get; set; }
 
