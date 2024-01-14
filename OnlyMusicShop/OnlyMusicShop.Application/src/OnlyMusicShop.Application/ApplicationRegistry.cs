@@ -1,18 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using OnlyMusicShop.Application.Repositories;
+﻿using Microsoft.Extensions.DependencyInjection;
 
 namespace OnlyMusicShop.Application
 {
+	// Extension method - musisz stworzyć statyczną metodę w klasie statycznej
 	public static class ApplicationRegistry
 	{
-		public static void AddApplication(this IServiceCollection services, IConfiguration Configuration)
-		{
-			services.AddScoped<IGuitarRepository, GuitarRepository>();
-			services.AddDbContext<OnlyMusicDbContext>(options => options.UseSqlServer(
-				Configuration.GetConnectionString("DefaultConnection")
-			));
-		}
+		public static void AddApplication(this IServiceCollection services)
+		{}
 	}
 }

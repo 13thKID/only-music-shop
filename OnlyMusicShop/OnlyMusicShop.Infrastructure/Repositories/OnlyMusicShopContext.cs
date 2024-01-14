@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using OnlyMusicShop.Domain.Entities;
 
-namespace OnlyMusicShop.Application.Repositories
+namespace OnlyMusicShop.Infrastructue.Repositories
 {
 	public class OnlyMusicDbContext : DbContext
 	{

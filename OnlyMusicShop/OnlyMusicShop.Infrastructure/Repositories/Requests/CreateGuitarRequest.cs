@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OnlyMusicShop.Domain.Entities
+namespace OnlyMusicShop.Infrastructue.Repositories.Requests
 {
-	public class Guitar
+	public class CreateGuitarRequest
 	{
 		public int Id { get; set; }
 		public required string Name { get; set; }
@@ -16,7 +16,5 @@ namespace OnlyMusicShop.Domain.Entities
 		public required string Color { get; set; }
 		public string? Description { get; set; }
 		public required decimal Price { get; set; }
-		public DateTime? CreateDate { get; set; }
-		public DateTime? UpdateDate { get; set; }
 	}
 }

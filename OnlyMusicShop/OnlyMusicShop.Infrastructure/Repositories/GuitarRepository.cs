@@ -1,20 +1,10 @@
 ﻿using OnlyMusicShop.Domain.Entities;
-using OnlyMusicShop.Application;
+using OnlyMusicShop.Infrastructue;
 using System.Reflection.Metadata;
+using OnlyMusicShop.Infrastructue.Repositories.Requests;
 
-namespace OnlyMusicShop.Application.Repositories
+namespace OnlyMusicShop.Infrastructue.Repositories
 {
-	public class GuitarAttributes
-	{
-		public int Id { get; set; }
-		public required string Name { get; set; }
-		public required string Manufacturer { get; set; }
-		public required string Model { get; set; }
-		public required string Type { get; set; }
-		public required string Color { get; set; }
-		public string? Description { get; set; }
-		public required decimal Price { get; set; }
-	}
 	public class GuitarRepository:IGuitarRepository
     {
 		private readonly OnlyMusicDbContext _db;
@@ -38,7 +28,7 @@ namespace OnlyMusicShop.Application.Repositories
 			return guitar;
 		}
 
-		public Guitar CreateGuitar(GuitarAttributes attr)
+		public Guitar CreateGuitar(CreateGuitarRequest attr)
 		{
 			var guitar = new Guitar() {
 				Id = attr.Id,
@@ -65,7 +55,7 @@ namespace OnlyMusicShop.Application.Repositories
 			return id;
 		}
 
-		public Guitar UpdateGuitar(int id, GuitarAttributes attr)
+		public Guitar UpdateGuitar(int id, CreateGuitarRequest attr)
 		{
 			var guitar = _db.Guitars.Where(g => g.Id == id).First();
 
