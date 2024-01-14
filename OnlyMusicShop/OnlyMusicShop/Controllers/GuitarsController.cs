@@ -38,10 +38,16 @@ namespace OnlyMusicShop.Controllers
 
         // POST api/<GuitarsController>
         [HttpPost]
-        public Guitar Post([FromBody] CreateGuitarRequest payload)
+        public IActionResult Post([FromBody] CreateGuitarRequest payload)
         {
-            return _guitarRepository.CreateGuitar(payload);
-        }
+            if(ModelState.IsValid)
+            {
+                var newGuitar = _guitarRepository.CreateGuitar(payload);
+				return StatusCode(StatusCodes.Status201Created, newGuitar);
+			}
+
+            return StatusCode(StatusCodes.Status400BadRequest, new { message = "error occurred" });
+		}
 
         // PUT api/<GuitarsController>/5
         [HttpPut("{id}")]
