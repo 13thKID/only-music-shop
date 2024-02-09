@@ -16,3 +16,5 @@ C:\Users\btkaczyk\Documents\mentoring\OnlyMusic\OnlyMusicShop\OnlyMusicShop.Infr
 C:\Users\btkaczyk\Documents\mentoring\OnlyMusic\OnlyMusicShop\OnlyMusicShop.Infrastructure\obj\Debug\net8.0\OnlyMusicShop.Infrastructure.pdb
 C:\Users\btkaczyk\Documents\mentoring\OnlyMusic\OnlyMusicShop\OnlyMusicShop.Infrastructure\obj\Debug\net8.0\OnlyMusicShop.Infrastructure.genruntimeconfig.cache
 C:\Users\btkaczyk\Documents\mentoring\OnlyMusic\OnlyMusicShop\OnlyMusicShop.Infrastructure\obj\Debug\net8.0\ref\OnlyMusicShop.Infrastructure.dll
+C:\Users\btkaczyk\Documents\mentoring\OnlyMusic\OnlyMusicShop\OnlyMusicShop.Infrastructure\bin\Debug\net8.0\OnlyMusicShop.Application.dll
+C:\Users\btkaczyk\Documents\mentoring\OnlyMusic\OnlyMusicShop\OnlyMusicShop.Infrastructure\bin\Debug\net8.0\OnlyMusicShop.Application.pdb

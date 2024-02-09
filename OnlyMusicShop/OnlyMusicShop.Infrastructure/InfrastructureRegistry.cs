@@ -1,8 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using OnlyMusicShop.Application.Interfaces;
 using OnlyMusicShop.Infrastructue.Repositories;
-using System.Reflection;
 
 namespace OnlyMusicShop.Infrastructue
 {
@@ -12,7 +11,6 @@ namespace OnlyMusicShop.Infrastructue
 		// Jako arg po this, wskazuje co będę rozszerzać; coś jak rozszerzanie JS w JavaScript
 		public static void AddInfrastructure(this IServiceCollection services, string ConnectionString)
 		{
-			services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
 			services.AddScoped<IGuitarRepository, GuitarRepository>();
 			services.AddDbContext<OnlyMusicDbContext>(options => options.UseSqlServer(
 				ConnectionString

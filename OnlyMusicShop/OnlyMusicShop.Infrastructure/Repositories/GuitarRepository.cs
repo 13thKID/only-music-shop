@@ -1,7 +1,6 @@
-﻿using OnlyMusicShop.Domain.Entities;
-using OnlyMusicShop.Infrastructue;
-using System.Reflection.Metadata;
-using OnlyMusicShop.Infrastructue.Repositories.Requests;
+﻿using OnlyMusicShop.Application.Interfaces;
+using OnlyMusicShop.Application.Requests;
+using OnlyMusicShop.Domain.Entities;
 
 namespace OnlyMusicShop.Infrastructue.Repositories
 {

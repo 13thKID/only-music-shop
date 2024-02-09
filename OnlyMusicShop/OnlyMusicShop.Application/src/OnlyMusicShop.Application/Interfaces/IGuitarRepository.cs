@@ -1,7 +1,7 @@
-﻿using OnlyMusicShop.Infrastructue.Repositories.Requests;
+﻿using OnlyMusicShop.Application.Requests;
 using OnlyMusicShop.Domain.Entities;
 
-namespace OnlyMusicShop.Infrastructue.Repositories;
+namespace OnlyMusicShop.Application.Interfaces;
 
 public interface IGuitarRepository
 {

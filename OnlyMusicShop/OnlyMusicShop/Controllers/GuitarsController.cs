@@ -1,9 +1,11 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using OnlyMusicShop.Infrastructue.Queries;
-using OnlyMusicShop.Infrastructue.Repositories;
-using OnlyMusicShop.Infrastructue.Repositories.Requests;
+using OnlyMusicShop.Application.Queries;
+using OnlyMusicShop.Application.Requests;
 using OnlyMusicShop.Domain.Entities;
+using OnlyMusicShop.Application.Commands;
+using OnlyMusicShop.Application.Interfaces;
+using OnlyMusicShop.Domain.Models;
 
 
 namespace OnlyMusicShop.Controllers
@@ -11,7 +13,7 @@ namespace OnlyMusicShop.Controllers
 
 	[Route("api/[controller]")]
     [ApiController]
-    public class GuitarsController : ControllerBase
+    public class GuitarsController : BaseController
     {
         private readonly IGuitarRepository _guitarRepository;
         private readonly IMediator _mediator;
@@ -21,7 +23,7 @@ namespace OnlyMusicShop.Controllers
             _guitarRepository = guitarRepository;
 			_mediator = mediator;
         }
-        // GET: api/<GuitarsController>
+        //GET: api/<GuitarsController>
         [HttpGet]
         public async Task<IEnumerable<Guitar>> Get()
         {
@@ -31,22 +33,19 @@ namespace OnlyMusicShop.Controllers
 
         // GET api/<GuitarsController>/5
         [HttpGet("{id}")]
-        public Guitar Get(int id)
+        public async Task<Guitar> Get(int id)
         {
-            return _guitarRepository.GetGuitar(id);
+			var response = await _mediator.Send(new GetGuitarByIdQuery(id));
+			return response;
         }
 
         // POST api/<GuitarsController>
         [HttpPost]
-        public IActionResult Post([FromBody] CreateGuitarRequest payload)
-        {
-            if(ModelState.IsValid)
-            {
-                var newGuitar = _guitarRepository.CreateGuitar(payload);
-				return StatusCode(StatusCodes.Status201Created, newGuitar);
-			}
+		public async Task<IActionResult> Post([FromBody] CreateGuitarRequest payload)
+		{
+			var response = await _mediator.Send(new CreateGuitarCommand(payload));
 
-            return StatusCode(StatusCodes.Status400BadRequest, new { message = "error occurred" });
+			return OkOrError(response);
 		}
 
         // PUT api/<GuitarsController>/5
