@@ -2,11 +2,12 @@
 using OnlyMusicShop.Application.Interfaces;
 using OnlyMusicShop.Application.Queries;
 using OnlyMusicShop.Domain.Entities;
+using OnlyMusicShop.Domain.Shared;
 
 namespace OnlyMusicShop.Application.Handlers
 {
 	// IRequestHandler<"what am I handling","what the output is gonna be?">
-	public class GetAllGuitarsHandler : IRequestHandler<GetAllGuitarsQuery, List<Guitar>>
+	public class GetAllGuitarsHandler : IQueryHandler<GetAllGuitarsQuery, List<Guitar>>
 	{
 		private readonly IGuitarRepository _guitarRepository;
 
@@ -15,9 +16,16 @@ namespace OnlyMusicShop.Application.Handlers
 			_guitarRepository = guitarRepository;
 		}
 
-		public Task<List<Guitar>> Handle(GetAllGuitarsQuery request, CancellationToken cancellationToken)
+		public Task<Result<List<Guitar>>> Handle(GetAllGuitarsQuery request, CancellationToken cancellationToken)
 		{
-			return Task.FromResult(_guitarRepository.GetGuitars());
+			var guitars = _guitarRepository.GetGuitars();
+
+			if (guitars.Any())
+			{
+				return Task.FromResult(Result.Success(guitars));
+			};
+
+			return Task.FromResult(Result.Failure<List<Guitar>>(new Error("Guitar.NotFound", "Not found")));
 		}
 	}
 }

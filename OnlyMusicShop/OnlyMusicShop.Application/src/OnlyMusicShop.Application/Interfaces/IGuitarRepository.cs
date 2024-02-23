@@ -1,5 +1,6 @@
 ﻿using OnlyMusicShop.Application.Requests;
 using OnlyMusicShop.Domain.Entities;
+using OnlyMusicShop.Domain.Shared;
 
 namespace OnlyMusicShop.Application.Interfaces;
 

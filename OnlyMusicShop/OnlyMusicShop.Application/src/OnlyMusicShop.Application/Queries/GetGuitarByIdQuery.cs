@@ -4,5 +4,5 @@ using OnlyMusicShop.Domain.Entities;
 
 namespace OnlyMusicShop.Application.Queries
 {
-	public record GetGuitarByIdQuery(int Id) : IRequest<Guitar>;
+	public record GetGuitarByIdQuery(int Id) : IQuery<Guitar>;
 }
