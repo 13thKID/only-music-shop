@@ -17,7 +17,6 @@ namespace OnlyMusicShop.Application.Behaviours
 
 		public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
 		{
-			return await next();
 			// Validate request
 			// If any errors, return validation result
 			// Otherwise, return next()
