@@ -47,12 +47,16 @@ namespace OnlyMusicShop.Infrastructue.Repositories
 			return guitar;
 		}
 
-		public int RemoveGuitar(int id)
+		public Guitar RemoveGuitar(int id)
 		{
-			_db.Remove(_db.Guitars.Single(a => a.Id == id));
-			_db.SaveChanges();
+			var guitarToRemove = _db.Guitars.Where(g => g.Id == id).First();
 
-			return id;
+			if (guitarToRemove is not null)
+			{
+				_db.Remove(guitarToRemove);
+				_db.SaveChanges();
+			}
+			return guitarToRemove;
 		}
 
 		public Guitar UpdateGuitar(int id, CreateGuitarRequest attr)

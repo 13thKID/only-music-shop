@@ -7,7 +7,7 @@ using OnlyMusicShop.Domain.Shared;
 
 namespace OnlyMusicShop.Application.Handlers
 {
-	public sealed class CreateGuitarHandler : ICommandHandler<CreateGuitarCommand>
+	public sealed class CreateGuitarHandler : ICommandHandler<CreateGuitarCommand, Guitar>
 	{
 		private readonly IGuitarRepository _guitarRepository;
 
@@ -16,10 +16,17 @@ namespace OnlyMusicShop.Application.Handlers
 			_guitarRepository = guitarRepository;
 		}
 
-		public async Task<Result> Handle(CreateGuitarCommand request, CancellationToken cancellationToken)
+		public Task<Result<Guitar>> Handle(CreateGuitarCommand request, CancellationToken cancellationToken)
 		{
-			//return Task.FromResult(_guitarRepository.CreateGuitar(request.GuitarBody));
-			return Result.Success();
+			var newGuitar = _guitarRepository.CreateGuitar(request.GuitarBody);
+
+			if(newGuitar is not null)
+			{
+				return Task.FromResult(Result.Success(newGuitar)); ;
+			}  else
+			{
+				return Task.FromResult(Result.Failure<Guitar>(new Error("Guitar.NotCreated", "The guitar could not be created")));
+			}
 		}
 	}
 }

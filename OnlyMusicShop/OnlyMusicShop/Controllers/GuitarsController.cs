@@ -58,9 +58,10 @@ namespace OnlyMusicShop.Controllers
 
 		// DELETE api/<GuitarsController>/5
 		[HttpDelete("{id}")]
-		public int Delete(int id)
+		public async Task<Result<Guitar>> Delete(int id)
 		{
-			return _guitarRepository.RemoveGuitar(id);
+			var response = await _mediator.Send(new DeleteGuitarCommand(id));
+			return response;
 		}
 	}
 }
