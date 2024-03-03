@@ -1,10 +1,12 @@
 ﻿using System.Net;
 using OnlyMusicShop.Domain.Models;
 using Microsoft.AspNetCore.Mvc;
+using OnlyMusicShop.Domain.Shared;
+using Microsoft.AspNetCore.Mvc.Core.Infrastructure;
 
 namespace OnlyMusicShop.Controllers;
 
-public class BaseController:ControllerBase
+public class BaseController: ControllerBase
 {
     [NonAction]
     public OkObjectResult OkOrError(object? value)
@@ -36,4 +38,37 @@ public class BaseController:ControllerBase
 
         return result;
     }
+
+    protected IActionResult HandleFailure(Result result) =>
+        result switch
+        {
+            { IsSuccess: true } => throw new InvalidOperationException(),
+			IValidationResult validationResult =>
+				BadRequest(
+                    CreateProblemDetails(
+                        "Validation Error", 
+                        StatusCodes.Status400BadRequest, 
+                        result.Error, validationResult.Errors
+                        )),
+            _ => BadRequest(
+					CreateProblemDetails(
+						"Validation Error",
+						StatusCodes.Status400BadRequest,
+						result.Error
+						))
+		};
+
+    private static ProblemDetails CreateProblemDetails(
+        string title,
+        int status,
+        Error error,
+        Error[]? errors = null) =>
+        new()
+        {
+            Title = title,
+            Type = error.Code,
+            Detail = error.Message,
+            Status = status,
+            Extensions = { { nameof(errors), errors } }
+        };
 }

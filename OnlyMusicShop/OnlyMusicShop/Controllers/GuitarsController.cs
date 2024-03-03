@@ -26,27 +26,44 @@ namespace OnlyMusicShop.Controllers
 		}
 		//GET: api/<GuitarsController>
 		[HttpGet]
-		public async Task<Result<List<Guitar>>> Get()
+		public async Task<IActionResult> Get()
 		{
-			var response = await _mediator.Send(new GetAllGuitarsQuery());
-			return response;
+			var result = await _mediator.Send(new GetAllGuitarsQuery());
+
+			if (result.IsFailure)
+			{
+				return HandleFailure(result);
+			}
+
+			return Ok(result);
 		}
 
 		// GET api/<GuitarsController>/5
 		[HttpGet("{id}")]
-		public async Task<Result<Guitar>> Get(int id)
+		public async Task<IActionResult> Get(int id)
 		{
-			var response = await _mediator.Send(new GetGuitarByIdQuery(id));
-			return response;
+			var result = await _mediator.Send(new GetGuitarByIdQuery(id));
+
+			if (result.IsFailure)
+			{
+				return HandleFailure(result);
+			}
+
+			return Ok(result);
 		}
 
 		// POST api/<GuitarsController>
 		[HttpPost]
-		public async Task<Result> Post([FromBody] CreateGuitarRequest payload)
+		public async Task<IActionResult> Post([FromBody] CreateGuitarRequest payload)
 		{
-			var response = await _mediator.Send(new CreateGuitarCommand(payload));
+			var result = await _mediator.Send(new CreateGuitarCommand(payload));
 
-			return response;
+			if (result.IsFailure)
+			{
+				return HandleFailure(result);
+			}
+
+			return CreatedAtAction(nameof(CreateGuitarCommand), result.Value);
 		}
 
 		// PUT api/<GuitarsController>/5

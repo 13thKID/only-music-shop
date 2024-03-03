@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OnlyMusicShop.Domain.Shared
 {
-	public sealed class ValidationResult<TValue>: Result<TValue>
+	public sealed class ValidationResult<TValue>: Result<TValue>, IValidationResult
 	{
 		private ValidationResult(Error[] errors)
 			: base(default, false, IValidationResult.ValidationError) =>

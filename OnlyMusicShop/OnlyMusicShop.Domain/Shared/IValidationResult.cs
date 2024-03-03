@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OnlyMusicShop.Domain.Shared
 {
-	internal class IValidationResult
+	public interface IValidationResult
 	{
 		public static readonly Error ValidationError = new(
 			"ValidationError",

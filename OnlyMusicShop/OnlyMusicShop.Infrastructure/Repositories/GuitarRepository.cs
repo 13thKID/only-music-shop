@@ -49,9 +49,9 @@ namespace OnlyMusicShop.Infrastructue.Repositories
 
 		public Guitar RemoveGuitar(int id)
 		{
-			var guitarToRemove = _db.Guitars.Where(g => g.Id == id).First();
+			var guitarToRemove = _db.Guitars.FirstOrDefault(g => g.Id == id);
 
-			if (guitarToRemove is not null)
+			if (guitarToRemove != null)
 			{
 				_db.Remove(guitarToRemove);
 				_db.SaveChanges();
