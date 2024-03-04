@@ -77,7 +77,7 @@ namespace OnlyMusicShop.Controllers
 				return HandleFailure(result);
 			}
 
-			return Ok(result);
+			return UpdatedAtAction(nameof(CreateGuitarCommand), result.Value);
 		}
 
 		// DELETE api/<GuitarsController>/5
