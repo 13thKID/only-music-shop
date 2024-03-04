@@ -68,17 +68,30 @@ namespace OnlyMusicShop.Controllers
 
 		// PUT api/<GuitarsController>/5
 		[HttpPut("{id}")]
-		public Guitar Put(int id, [FromBody] CreateGuitarRequest attr)
+		public async Task<IActionResult> Put(int id, [FromBody] UpdateGuitarRequest attr)
 		{
-			return _guitarRepository.UpdateGuitar(id, attr);
+			var result = await _mediator.Send(new UpdateGuitarCommand(id, attr));
+
+			if (result.IsFailure)
+			{
+				return HandleFailure(result);
+			}
+
+			return Ok(result);
 		}
 
 		// DELETE api/<GuitarsController>/5
 		[HttpDelete("{id}")]
-		public async Task<Result<Guitar>> Delete(int id)
+		public async Task<IActionResult> Delete(int id)
 		{
-			var response = await _mediator.Send(new DeleteGuitarCommand(id));
-			return response;
+			var result = await _mediator.Send(new DeleteGuitarCommand(id));
+
+			if (result.IsFailure)
+			{
+				return HandleFailure(result);
+			}
+
+			return Ok(result);
 		}
 	}
 }

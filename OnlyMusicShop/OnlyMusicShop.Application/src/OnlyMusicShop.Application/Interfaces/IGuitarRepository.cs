@@ -10,5 +10,5 @@ public interface IGuitarRepository
     public Guitar GetGuitar(int id);
     public Guitar CreateGuitar(CreateGuitarRequest attr);
     public Guitar RemoveGuitar(int id);
-    public Guitar UpdateGuitar(int id, CreateGuitarRequest attr);
+    public Guitar UpdateGuitar(int id, UpdateGuitarRequest attr);
 }

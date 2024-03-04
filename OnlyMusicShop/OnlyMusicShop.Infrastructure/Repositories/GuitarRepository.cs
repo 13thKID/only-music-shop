@@ -59,7 +59,7 @@ namespace OnlyMusicShop.Infrastructue.Repositories
 			return guitarToRemove;
 		}
 
-		public Guitar UpdateGuitar(int id, CreateGuitarRequest attr)
+		public Guitar UpdateGuitar(int id, UpdateGuitarRequest attr)
 		{
 			var guitar = _db.Guitars.Where(g => g.Id == id).First();
 
